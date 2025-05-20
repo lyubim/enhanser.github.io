@@ -16,19 +16,14 @@
         body, html {
             margin: 0;
             padding: 0;
-            overflow: hidden; /* скрываем переполнение */
+            overflow: hidden;
             touch-action: manipulation;
             height: 100%; /* обеспечиваем, что body и html занимают всю высоту */
             transition: background-color 0.3s ease;
         }
-        .background-svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
+        a {
+            /* text-decoration: none; */
+            color: #000;
         }
         .container {
             display: flex;
@@ -41,7 +36,7 @@
         }
         .content {
             width: 100%;
-            height: 100%;
+            /* height: 200vh; */
             position: absolute;
             top: 0;
             left: 0;
@@ -62,7 +57,7 @@
     }
         @media (max-width: 768px) {
             .content {
-                height: 300vh; /* Mobile height */
+                height: 200vh; 
             }
             .title {
                 font-size: 48px; /* Увеличиваем размер шрифта на мобильных */
@@ -75,9 +70,9 @@
                 overflow-y: scroll; /* Включаем вертикальный скролл на мобильных */
             }
             .cat {
-/* 
-                width: 100%;
-            height: 300vh; */
+
+
+            height: 100%;
 
 
        
@@ -135,13 +130,15 @@
     </style>
 </head>
 <body>
-    <div class="cat" id="example"></div>
+    
     <div class="container">
+       
         <div class="title" id="title">Enhanser </div>
         <div class="content" id="content">
             <div id="svgWrapper"></div>
         </div>
-        <div class="subtitle" id="subtitle">From friends with best wishes <br> 2024</div>
+        <div class="subtitle" id="subtitle">From friends with best wishes <br> 2024<br> <a href="Enhanser-Regular.otf" id="download">Download</a></div>
+        <div class="cat" id="example"></div>
     </div>
 
     <script>
@@ -794,6 +791,7 @@
         const title = document.getElementById('title');
         const subtitle = document.getElementById('subtitle');
         const exampleDiv = document.getElementById('example');
+        const download = document.getElementById('download');
         let vw = window.innerWidth;
         let vh = window.innerHeight; // Получаем высоту окна браузера
         let cursorX = 0;
@@ -858,6 +856,7 @@
             document.body.style.backgroundColor = colorScheme.background;
             title.style.color = colorScheme.title;
             subtitle.style.color = colorScheme.subtitle;
+            download.style.color = colorScheme.label;
             const labels = document.querySelectorAll('.svg-label');
             labels.forEach(label => {
                 label.style.color = colorScheme.label;
